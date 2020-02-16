@@ -19,7 +19,7 @@ namespace Autoclicker
             while (true)
             { 
                 SendKeys.SendWait(" ");
-                Thread.Sleep(5000);
+                Thread.Sleep(RandomNumber(5000, 15000));
             }
         }
 
@@ -33,6 +33,13 @@ namespace Autoclicker
             // Activate the first application we find with this name
             if (p.Count() > 0)
                 SetForegroundWindow(p[0].MainWindowHandle);
+        }
+
+        // Generate a random number between two numbers  
+        public static int RandomNumber(int min, int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);
         }
     }
 }
